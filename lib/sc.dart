@@ -1,39 +1,49 @@
-import 'package:action2/ads/wiget_ads/widget_unit_admob.dart';
-import 'package:action2/page2.dart';
-import 'package:flutter/material.dart';
 
-class PageScreen extends StatelessWidget {
-  List<Widget> ListScrent = [Page2(), Page2()];
+import 'package:action2/color.dart';
+import 'package:action2/provider/bottom_prov.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+
+
+class BootomNAvgitonScreenDeutsch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox(
-        height: 350,
-        width: 350,
-        child: ListView.builder(
-          itemCount: 25,
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return alertDilogAll(screen: ListScrent[index]);
-                    });
-              },
-              child: Column(
-                children: [
-                  Text(
-                    index.toString() + "data",
-                    style: TextStyle(color: Colors.amber, fontSize: 22),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-      ),
+    return Consumer<BottomProvedrdeutsch>(
+      builder: (BuildContext context, value, Widget? child) {
+        return
+           Scaffold(
+
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+            body: value.ListScreens[value.curintIndex],
+            bottomNavigationBar: BottomNavigationBar(
+                backgroundColor: ColorManager.app,
+                unselectedItemColor: ColorManager.white,
+                fixedColor: ColorManager.erorr,
+
+                items: value.lisBottom,
+                currentIndex: value.curintIndex,
+                onTap: (index) {
+                  //Handle button tap
+
+                  value.ChingIndex(index);
+
+                }),
+
+
+          );
+      },
+
+
+
+
+
+
+
     );
   }
 }
+
+

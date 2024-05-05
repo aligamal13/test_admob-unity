@@ -1,11 +1,14 @@
 import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+String ads='ca-app-pub-6551020517578330/6705756641';
 String test='ca-app-pub-3940256099942544/6300978111';
 
 
+String video='ca-app-pub-6551020517578330/7973524710';
 String testVideo='ca-app-pub-3940256099942544/8691691433';
 
+String videorewardedAdUnitId="ca-app-pub-6551020517578330/8689756308";
 String testrewardedAdUnitId="ca-app-pub-3940256099942544/5224354917";
 
 
@@ -31,10 +34,10 @@ class AdsManager {
 
   static String get bottomShetInitrstitiolAdId{
     if(testMode){
-      return '$testVideo';
+      return 'testVideo';
 
     }else if(Platform.isAndroid){
-      return '$testVideo';
+      return 'testVideo';
     }else {
       throw UnsupportedError('Unsupported platform');
     }
